@@ -2,8 +2,7 @@ import React from "react";
 
 const Post = ({ post }) => {
   const { title, body } = post;
-  console.log(title);
-  console.log(body);
+
   return (
     <>
       <div className="space-y-6">
