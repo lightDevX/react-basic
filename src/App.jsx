@@ -1,6 +1,7 @@
 import handleClick from "../utils/event";
 import "./App.css";
 import Posts from "./components/Posts/Posts";
+import TicTacToe from "./components/Tic-Tac-Toe/TicTacToe";
 import UseEff from "./components/useEffect/UseEff";
 
 function App() {
@@ -20,6 +21,10 @@ function App() {
       </section>
       <section>
         <Posts></Posts>
+      </section>
+
+      <section className="mx-auto max-w-7xl">
+        <TicTacToe></TicTacToe>
       </section>
     </>
   );
