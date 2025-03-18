@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { addToLS } from "../../utilities/localStorage";
+import { addToLS, getStoredCart } from "../../utilities/localStorage";
 import Fruit from "./Fruit";
 
 const Fruits = () => {
@@ -19,6 +19,20 @@ const Fruits = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if (fruits.length > 0) {
+      const storedCard = getStoredCart();
+      const saveCartInfo = [];
+      for (const id of storedCard) {
+        const fruitItem = fruits.find((fruitItem) => fruitItem.id === id);
+        if (fruitItem) {
+          saveCartInfo.push(fruitItem);
+        }
+      }
+      setFruitCart(saveCartInfo);
+    }
+  }, [fruits]);
+
   const handleFruitCart = (fruit) => {
     const newFruitCart = [...fruitCart, fruit];
     setFruitCart(newFruitCart);
@@ -31,7 +45,9 @@ const Fruits = () => {
         <h3 className="text-2xl font-bold text-red-300">
           Food Cart: {fruits.length}
         </h3>
-        <p className="text-2xl font-bold text-red-300">Set Cart:</p>
+        <p className="text-2xl font-bold text-red-300">
+          Set Cart: {fruitCart.length}
+        </p>
       </div>
       <div className="mt-5 grid grid-cols-3 gap-5">
         {fruits.map((fruit) => (
