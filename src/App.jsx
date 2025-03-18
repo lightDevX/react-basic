@@ -1,5 +1,5 @@
 import "./App.css";
-import Countries from "./components/Countries/Countries";
+import Fruits from "./components/Fruits/Fruits";
 
 function App() {
   // const actors = ["Rajjak", "Salman Shah", "Rubel", "Iliash"];
@@ -21,7 +21,8 @@ function App() {
       </section> */}
 
       <section className="mx-auto max-w-7xl">
-        <Countries></Countries>
+        {/* <Countries></Countries> */}
+        <Fruits></Fruits>
       </section>
     </>
   );
