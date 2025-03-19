@@ -1,28 +1,25 @@
+import { useState } from "react";
 import "./App.css";
-import Fruits from "./components/Fruits/Fruits";
+import Blogs from "./components/Blogs/Blogs";
+import Bookmarks from "./components/Bookmarks/Bookmarks";
 
 function App() {
-  // const actors = ["Rajjak", "Salman Shah", "Rubel", "Iliash"];
+  const [bookMarks, setBookMarks] = useState([]);
+
+  const handleBookMark = (blog) => {
+    const newBookMarks = [...bookMarks, blog];
+    setBookMarks(newBookMarks);
+  };
 
   return (
     <>
-      {/* <h1 className="py-2 text-center text-3xl font-bold text-red-300">
-        {actors.map((actor) => (
-          <li key={actor.key}>{actor}</li>
-        ))}
-      </h1>
-      <button onClick={handleClick}>Click Me</button>
-
-      <section>
-        <UseEff />
-      </section>
-      <section>
-        <Posts></Posts>
-      </section> */}
-
       <section className="mx-auto max-w-7xl">
-        {/* <Countries></Countries> */}
-        <Fruits></Fruits>
+        <div className="grid grid-cols-3 gap-2">
+          <div className="col-span-2">
+            <Blogs handleBookMark={handleBookMark}></Blogs>
+          </div>
+          <Bookmarks bookMarks={bookMarks}></Bookmarks>
+        </div>
       </section>
     </>
   );
